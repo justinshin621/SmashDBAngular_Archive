@@ -2,7 +2,7 @@ import {User} from "./user";
 
 export class Fighter {
   name: string;
-  gsp: string;
+  gsp: number;
   createdBy: User;
   createdDate: Date;
   isFavorite: boolean;
