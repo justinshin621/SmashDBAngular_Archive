@@ -1,3 +1,3 @@
 <div class="fighter-container">
-
+  <app-fighter class="card-item" *ngFor="let fighter of fighters" [fighter]="fighter" (deleteEvent)="deleteFighter($event)"></app-fighter>
 </div>
