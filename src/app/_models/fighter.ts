@@ -6,4 +6,5 @@ export class Fighter {
   createdBy: User;
   createdDate: Date;
   isFavorite: boolean;
+  isElite: boolean;
 }
