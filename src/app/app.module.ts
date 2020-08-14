@@ -14,6 +14,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { FighterComponent } from './fighter/fighter.component';
 import { MyGSPComponent } from './my-gsp/my-gsp.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { EditComponent } from './edit/edit.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
     FighterComponent,
     MyGSPComponent,
     LeaderboardComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,

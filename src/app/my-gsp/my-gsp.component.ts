@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Fighter} from "../_models/fighter";
+import {UserService} from "../_services/user.service";
+import {NotificationService} from "../_services/notification.service";
 
 @Component({
   selector: 'app-my-gsp',
@@ -7,7 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyGSPComponent implements OnInit {
 
-  constructor() { }
+  fighters: Fighter[] = [];
+
+  constructor(private userService: UserService,
+              private notifService: NotificationService) { }
 
   ngOnInit() {
   }
