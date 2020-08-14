@@ -1,5 +1,5 @@
 export enum FighterIcon {
-  kirby = 'https://www.elitegsp.com/flairs/6-min.png',
+  Kirby = 'https://www.elitegsp.com/flairs/6-min.png',
   Fox = 'https://www.elitegsp.com/flairs/7-min.png',
   Cloud = 'https://www.elitegsp.com/flairs/61-min.png',
   Pikachu = 'https://www.elitegsp.com/flairs/8-min.png',
@@ -13,5 +13,6 @@ export enum FighterIcon {
   Pichu = 'https://www.elitegsp.com/flairs/19-min.png',
   CFalcon = 'https://www.elitegsp.com/flairs/11-min.png',
   Ganon = 'https://www.elitegsp.com/flairs/23-min.png',
-  Yoshi = 'https://www.elitegsp.com/flairs/5-min.png'
+  Yoshi = 'https://www.elitegsp.com/flairs/5-min.png',
+  star = 'https://www.freepnglogos.com/uploads/star-png/star-vector-png-transparent-image-pngpix-21.png'
 }

@@ -15,6 +15,7 @@ import { FighterComponent } from './fighter/fighter.component';
 import { MyGSPComponent } from './my-gsp/my-gsp.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { EditComponent } from './edit/edit.component';
+import {IgxAvatarModule} from "igniteui-angular";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { EditComponent } from './edit/edit.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    IgxAvatarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

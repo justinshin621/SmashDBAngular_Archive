@@ -7,13 +7,13 @@ import {RegisterComponent} from "./register/register.component";
 import {MyGSPComponent} from "./my-gsp/my-gsp.component";
 import {LeaderboardComponent} from "./leaderboard/leaderboard.component";
 import {EditComponent} from "./edit/edit.component";
-import {Fighter} from "./_models/fighter";
+import {FighterComponent} from "./fighter/fighter.component";
 
 
 const routes: Routes = [{path: '', component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent}, {path: 'register', component: RegisterComponent},
   {path: 'mygsp', component: MyGSPComponent}, {path: 'leaderboard', component: LeaderboardComponent},
-  {path: 'edit', component: EditComponent}, {path: 'fighter', component: Fighter}
+  {path: 'edit', component: EditComponent}, {path: 'fighter', component: FighterComponent}
  ];
 
 @NgModule({
