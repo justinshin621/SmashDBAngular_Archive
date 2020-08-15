@@ -36,7 +36,7 @@ export class FighterComponent implements OnInit {
 
   ngOnInit() {
     this.gsp = this.fighter.gsp
-    this.date = this.fighter.createdDate.toDateString()
+    this.date = this.fighter.createdDate.toString()
     this.username = this.fighter.createdBy.username
     this.avatar = this.getIcon();
     this.isElite = this.fighter.isElite;
