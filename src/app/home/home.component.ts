@@ -38,10 +38,9 @@ import {AuthService} from "../_services/auth.service";
       isFavorite: false,
       isElite: false
     };
-    const userid = this.authService.currentUserValue._id;
     console.log(record);
-    console.log(userid);
-    this.fighterService.submit({record, userid}).subscribe(() => {
+    console.log(this.authService.currentUserValue.username);
+    this.fighterService.submit(record, this.authService.currentUserValue.username).subscribe(() => {
       console.log('here');
       this.notifService.showNotif('Fighter GSP recorded!', 'confirmation');
     },

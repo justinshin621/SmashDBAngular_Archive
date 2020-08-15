@@ -39,8 +39,8 @@
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item [routerLink]="['/edit', this.fighter.name, this.fighter.gsp, this.fighter.isFavorite,
-        this.userHasMain]">
+        <button mat-menu-item [routerLink]="['/edit', this.fighter.createdDate ,this.fighter.name, this.fighter.gsp,
+        this.fighter.isFavorite, this.userHasMain]">
           <mat-icon>edit</mat-icon>
           <span>Edit</span>
         </button>
@@ -97,7 +97,8 @@
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item [routerLink]="['/edit', this.fighter.name, this.fighter.gsp, this.fighter.isFavorite,
+        <button mat-menu-item [routerLink]="['/edit', this.fighter.createdDate,
+        this.fighter.name, this.fighter.gsp, this.fighter.isFavorite,
         this.userHasMain]">
           <mat-icon>edit</mat-icon>
           <span>Edit</span>

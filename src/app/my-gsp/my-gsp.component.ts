@@ -3,6 +3,7 @@ import {Fighter} from "../_models/fighter";
 import {UserService} from "../_services/user.service";
 import {NotificationService} from "../_services/notification.service";
 import {AuthService} from "../_services/auth.service";
+import {FighterService} from "../_services/fighter.service";
 
 @Component({
   selector: 'app-my-gsp',
@@ -23,14 +24,19 @@ export class MyGSPComponent implements OnInit {
 
   constructor(private userService: UserService,
               private notifService: NotificationService,
-              private authService: AuthService) { }
+              private authService: AuthService,
+              private fighterService: FighterService) { }
 
   ngOnInit() {
     this.loadAllFighters();
   }
 
   loadAllFighters() {
-
+    this.fighterService.getAll().subscribe(fighters => {
+      this.fighters = fighters;
+      console.log(this.fighters);
+    },
+      error => this.notifService.showNotif(error.toString(), 'warning'));
   }
 
   loadUserFighters() {

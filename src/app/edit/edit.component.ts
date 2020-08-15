@@ -22,6 +22,8 @@ export class EditComponent implements OnInit {
 
   hasMain: boolean;
 
+  date: Date
+
   constructor(private route: ActivatedRoute,
               private notifService: NotificationService,
               private auth: AuthService,
@@ -32,7 +34,7 @@ export class EditComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.favorite = params['favorite'].toString() === 'true';
       this.hasMain = params['hasFavorite'].toString() === 'true';
-
+      this.date = params['date'];
       this.gsp = params['gsp'];
       this.fighter = params['fighter']
       this.avatar = this.getIcon();
@@ -56,7 +58,8 @@ export class EditComponent implements OnInit {
   }
 
   editCard() {
-    this.fighterService.edit({gsp: this.gsp, fighter: this.fighter, favorite: this.favorite, hasMain: this.hasMain},
+    this.fighterService.edit({date: this.date,
+        gsp: this.gsp, fighter: this.fighter, favorite: this.favorite, hasMain: this.hasMain},
       this.auth.currentUserValue.username)
       .subscribe(() => {
         console.log(this.auth.currentUserValue.username);
