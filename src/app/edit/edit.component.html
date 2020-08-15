@@ -29,10 +29,10 @@
       Favorite
     </p>
       <mat-radio-group class="radio-group" [(ngModel)]="favorite" [ngModelOptions]="{standalone: true}">
-        <mat-radio-button [value]="true" [disabled]="hasMain" (click)="yes()">
+        <mat-radio-button [value]="true" [disabled]="hasMain">
           Yes
         </mat-radio-button>
-        <mat-radio-button [value]="false" (click)="no()">
+        <mat-radio-button [value]="false">
           No
         </mat-radio-button>
       </mat-radio-group>

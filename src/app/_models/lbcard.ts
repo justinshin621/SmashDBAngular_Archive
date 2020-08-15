@@ -4,7 +4,7 @@ export class LBCard {
   last: string;
   avggsp: number;
   topgsp: number;
-  favorite: string;
+  favoriteFighter: string;
   rank: number;
   isElite: boolean;
 }

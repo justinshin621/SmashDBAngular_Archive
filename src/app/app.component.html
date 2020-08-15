@@ -1,4 +1,11 @@
 <mat-toolbar *ngIf="isUser">
+
+  <igx-avatar [initials]="initials"
+              roundShape="true"
+              size="small"
+  >
+  </igx-avatar>
+
   <button mat-button routerLink="/">Home</button>
 
   <button mat-button routerLink="/mygsp">GSPs</button>

@@ -1,6 +1,9 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FighterIcon} from "../_models/fightericon";
 import {Fighter} from "../_models/fighter";
+import {UserService} from "../_services/user.service";
+import {User} from "../_models/user";
+import {AuthService} from "../_services/auth.service";
 
 @Component({
   selector: 'app-fighter',
@@ -26,11 +29,12 @@ export class FighterComponent implements OnInit {
 
   isElite: boolean
 
-  userHasMain = true;
+  userHasMain: boolean;
 
   constructor() { }
 
   delete(date) {
+    console.log(date);
     this.deleteEvent.emit(date);
   }
 

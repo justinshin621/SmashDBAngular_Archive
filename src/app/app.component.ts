@@ -25,6 +25,10 @@ export class AppComponent {
     return this.currentUser;
   }
 
+  get initials() {
+
+    return this.currentUser.firstName[0] + this.currentUser.lastName[0];
+  }
 
   logout() {
     this.authService.logout();

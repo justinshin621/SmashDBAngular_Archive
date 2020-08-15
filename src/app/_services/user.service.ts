@@ -14,5 +14,9 @@ export class UserService {
     return this.http.post(`http://localhost:3030/user/register`, user);
   }
 
+  getAllUsers() {
+    return this.http.get<User[]>(`http://localhost:3030/user/allusers`);
+  }
+
 
 }

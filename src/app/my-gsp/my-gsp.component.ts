@@ -4,6 +4,7 @@ import {UserService} from "../_services/user.service";
 import {NotificationService} from "../_services/notification.service";
 import {AuthService} from "../_services/auth.service";
 import {FighterService} from "../_services/fighter.service";
+import {first} from "rxjs/operators";
 
 @Component({
   selector: 'app-my-gsp',
@@ -44,7 +45,11 @@ export class MyGSPComponent implements OnInit {
   }
 
   deleteFighter(date) {
-
+    this.fighterService.delete(date, this.authService.currentUserValue.username).pipe(first()).subscribe(() => {
+      this.fighters = null;
+      this.loadAllFighters();
+      this.notifService.showNotif('Delete Fighter!', 'response');
+    })
   }
 
 }

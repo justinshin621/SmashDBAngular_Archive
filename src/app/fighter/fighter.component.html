@@ -40,11 +40,11 @@
       </button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item [routerLink]="['/edit', this.fighter.createdDate ,this.fighter.name, this.fighter.gsp,
-        this.fighter.isFavorite, this.userHasMain]">
+        this.fighter.isFavorite]">
           <mat-icon>edit</mat-icon>
           <span>Edit</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item (click)="delete(fighter.createdDate)">
           <mat-icon>delete</mat-icon>
           <span>Delete</span>
         </button>
@@ -98,8 +98,7 @@
       </button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item [routerLink]="['/edit', this.fighter.createdDate,
-        this.fighter.name, this.fighter.gsp, this.fighter.isFavorite,
-        this.userHasMain]">
+        this.fighter.name, this.fighter.gsp, this.fighter.isFavorite]">
           <mat-icon>edit</mat-icon>
           <span>Edit</span>
         </button>

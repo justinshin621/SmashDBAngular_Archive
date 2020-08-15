@@ -5,6 +5,7 @@ import {AuthService} from "../_services/auth.service";
 import {FighterIcon} from "../_models/fightericon";
 import {FighterService} from "../_services/fighter.service";
 
+
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
@@ -33,33 +34,19 @@ export class EditComponent implements OnInit {
 
     this.route.params.subscribe(params => {
       this.favorite = params['favorite'].toString() === 'true';
-      this.hasMain = params['hasFavorite'].toString() === 'true';
       this.date = params['date'];
       this.gsp = params['gsp'];
       this.fighter = params['fighter']
       this.avatar = this.getIcon();
+
       console.log('Has Main is: ' + this.hasMain)
       console.log('Favorite is: ' + this.favorite);
     });
   }
 
-  no() {
-    this.hasMain = false;
-    this.favorite = false;
-    console.log('Has Main is: ' + this.hasMain)
-    console.log('Favorite is: ' + this.favorite);
-  }
-
-  yes() {
-    this.hasMain = true;
-    this.favorite = true;
-    console.log('Has Main is: ' + this.hasMain)
-    console.log('Favorite is: ' + this.favorite);
-  }
-
   editCard() {
     this.fighterService.edit({date: this.date,
-        gsp: this.gsp, fighter: this.fighter, favorite: this.favorite, hasMain: this.hasMain},
+        gsp: this.gsp, fighter: this.fighter, favorite: this.favorite},
       this.auth.currentUserValue.username)
       .subscribe(() => {
         console.log(this.auth.currentUserValue.username);

@@ -28,7 +28,7 @@ export class LBCardComponent implements OnInit {
 
   isElite: boolean
 
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
 
@@ -43,53 +43,53 @@ export class LBCardComponent implements OnInit {
   }
 
   isUser() {
-    return false;
+    return this.LBCard.username === this.auth.currentUserValue.username;
   }
 
   getIcon() {
-    if (this.LBCard.favorite == 'Kirby') {
+    if (this.LBCard.favoriteFighter == 'Kirby') {
       return FighterIcon.Kirby
     }
-    else if (this.LBCard.favorite == 'Fox') {
+    else if (this.LBCard.favoriteFighter == 'Fox') {
       return FighterIcon.Fox
     }
-    else if (this.LBCard.favorite == 'Marth') {
+    else if (this.LBCard.favoriteFighter == 'Marth') {
       return FighterIcon.Marth
     }
-    else if (this.LBCard.favorite == 'Falco') {
+    else if (this.LBCard.favoriteFighter == 'Falco') {
       return FighterIcon.Falco
     }
-    else if (this.LBCard.favorite == 'Mario') {
+    else if (this.LBCard.favoriteFighter == 'Mario') {
       return FighterIcon.Mario
     }
-    else if (this.LBCard.favorite == 'Pikachu') {
+    else if (this.LBCard.favoriteFighter == 'Pikachu') {
       return FighterIcon.Pikachu
     }
-    else if (this.LBCard.favorite == 'Captain Falcon') {
+    else if (this.LBCard.favoriteFighter == 'Captain Falcon') {
       return FighterIcon.CFalcon
     }
-    else if (this.LBCard.favorite == 'Ganondorf') {
+    else if (this.LBCard.favoriteFighter == 'Ganondorf') {
       return FighterIcon.Ganon
     }
-    else if (this.LBCard.favorite == 'Cloud') {
+    else if (this.LBCard.favoriteFighter == 'Cloud') {
       return FighterIcon.Cloud
     }
-    else if (this.LBCard.favorite == 'Luigi') {
+    else if (this.LBCard.favoriteFighter == 'Luigi') {
       return FighterIcon.Luigi
     }
-    else if (this.LBCard.favorite == 'Meta Knight') {
+    else if (this.LBCard.favoriteFighter == 'Meta Knight') {
       return FighterIcon.MKnight
     }
-    else if (this.LBCard.favorite == 'Peach') {
+    else if (this.LBCard.favoriteFighter == 'Peach') {
       return FighterIcon.Peach
     }
-    else if (this.LBCard.favorite == 'Roy') {
+    else if (this.LBCard.favoriteFighter == 'Roy') {
       return FighterIcon.Roy
     }
-    else if (this.LBCard.favorite == 'Yoshi') {
+    else if (this.LBCard.favoriteFighter == 'Yoshi') {
       return FighterIcon.Yoshi
     }
-    else if (this.LBCard.favorite == 'Pichu') {
+    else if (this.LBCard.favoriteFighter == 'Pichu') {
       return FighterIcon.Pichu
     }
     else {
