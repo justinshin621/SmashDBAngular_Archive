@@ -14,5 +14,7 @@ export enum FighterIcon {
   CFalcon = 'https://www.elitegsp.com/flairs/11-min.png',
   Ganon = 'https://www.elitegsp.com/flairs/23-min.png',
   Yoshi = 'https://www.elitegsp.com/flairs/5-min.png',
-  star = 'https://www.freepnglogos.com/uploads/star-png/star-vector-png-transparent-image-pngpix-21.png'
+  star = 'https://www.freepnglogos.com/uploads/star-png/star-vector-png-transparent-image-pngpix-21.png',
+  None = 'https://img.icons8.com/ios/50/000000/not-applicable.png'
+
 }

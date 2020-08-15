@@ -53,7 +53,42 @@ export class FighterComponent implements OnInit {
     else if (this.fighter.name == 'Falco') {
       return FighterIcon.Falco
     }
-
+    else if (this.fighter.name == 'Mario') {
+      return FighterIcon.Mario
+    }
+    else if (this.fighter.name == 'Pikachu') {
+      return FighterIcon.Pikachu
+    }
+    else if (this.fighter.name == 'Captain Falcon') {
+      return FighterIcon.CFalcon
+    }
+    else if (this.fighter.name == 'Ganondorf') {
+      return FighterIcon.Ganon
+    }
+    else if (this.fighter.name == 'Cloud') {
+      return FighterIcon.Cloud
+    }
+    else if (this.fighter.name == 'Luigi') {
+      return FighterIcon.Luigi
+    }
+    else if (this.fighter.name == 'Meta Knight') {
+      return FighterIcon.MKnight
+    }
+    else if (this.fighter.name == 'Peach') {
+      return FighterIcon.Peach
+    }
+    else if (this.fighter.name == 'Roy') {
+      return FighterIcon.Roy
+    }
+    else if (this.fighter.name == 'Yoshi') {
+      return FighterIcon.Yoshi
+    }
+    else if (this.fighter.name == 'Pichu') {
+      return FighterIcon.Pichu
+    }
+    else {
+      return FighterIcon.None
+    }
   }
 
 

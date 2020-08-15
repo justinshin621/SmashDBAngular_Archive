@@ -3,6 +3,8 @@ export class LBCard {
   first: string;
   last: string;
   avggsp: number;
+  topgsp: number;
   favorite: string;
-  rank: number
+  rank: number;
+  isElite: boolean;
 }
