@@ -14,7 +14,7 @@ import {LBCardComponent} from "./lbcard/lbcard.component";
 const routes: Routes = [{path: '', component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent}, {path: 'register', component: RegisterComponent},
   {path: 'mygsp', component: MyGSPComponent}, {path: 'leaderboard', component: LeaderboardComponent},
-  {path: 'edit', component: EditComponent}, {path: 'fighter', component: FighterComponent},
+  {path: 'edit/:fighter/:gsp/:favorite/:hasFavorite', component: EditComponent}, {path: 'fighter', component: FighterComponent},
   {path: 'lbcard', component: LBCardComponent}
  ];
 

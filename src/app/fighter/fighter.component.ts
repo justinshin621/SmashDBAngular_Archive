@@ -8,6 +8,7 @@ import {Fighter} from "../_models/fighter";
   styleUrls: ['./fighter.component.css']
 })
 export class FighterComponent implements OnInit {
+
   @Input() fighter: Fighter;
   @Output() deleteEvent = new EventEmitter<Date>()
 
@@ -15,15 +16,17 @@ export class FighterComponent implements OnInit {
 
   gsp: number;
 
-  avatar = FighterIcon.Fox;
+  avatar: FighterIcon;
 
   date: string;
 
   star = FighterIcon.star;
 
-  isFavorite = true;
+  isFavorite: boolean
 
-  isElite = true;
+  isElite: boolean
+
+  userHasMain = true;
 
   constructor() { }
 

@@ -3,6 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import {NotificationService} from "../_services/notification.service";
 import {AuthService} from "../_services/auth.service";
 import {FighterIcon} from "../_models/fightericon";
+import {FighterService} from "../_services/fighter.service";
 
 @Component({
   selector: 'app-edit',
@@ -21,35 +22,48 @@ export class EditComponent implements OnInit {
 
   hasMain: boolean;
 
-  formatLabel(value: number) {
-    if (value >= 1000000) {
-      return (Math.round(value / 100000)/ 10) + 'm';
-    }
-
-    return value;
-  }
-
   constructor(private route: ActivatedRoute,
               private notifService: NotificationService,
-              private auth: AuthService) { }
+              private auth: AuthService,
+              private fighterService: FighterService) { }
 
   ngOnInit() {
 
-    this.fighter = 'Captain Falcon';
-    this.gsp = 5000000;
-    this.favorite = false;
-    this.avatar = this.getIcon();
-    this.hasMain = false;
+    this.route.params.subscribe(params => {
+      this.favorite = params['favorite'].toString() === 'true';
+      this.hasMain = params['hasFavorite'].toString() === 'true';
 
-    /*this.route.params.subscribe(params => {
       this.gsp = params['gsp'];
       this.fighter = params['fighter']
-      this.favorite = params['favorite'];
-    });*/
+      this.avatar = this.getIcon();
+      console.log('Has Main is: ' + this.hasMain)
+      console.log('Favorite is: ' + this.favorite);
+    });
+  }
+
+  no() {
+    this.hasMain = false;
+    this.favorite = false;
+    console.log('Has Main is: ' + this.hasMain)
+    console.log('Favorite is: ' + this.favorite);
+  }
+
+  yes() {
+    this.hasMain = true;
+    this.favorite = true;
+    console.log('Has Main is: ' + this.hasMain)
+    console.log('Favorite is: ' + this.favorite);
   }
 
   editCard() {
-
+    this.fighterService.edit({gsp: this.gsp, fighter: this.fighter, favorite: this.favorite, hasMain: this.hasMain},
+      this.auth.currentUserValue.username)
+      .subscribe(() => {
+        console.log(this.auth.currentUserValue.username);
+        this.notifService.showNotif('Update Saved', 'confirmation');
+      }, error => {
+        this.notifService.showNotif(error);
+      });
   }
 
   getIcon() {
@@ -103,4 +117,13 @@ export class EditComponent implements OnInit {
     }
   }
 
+  formatLabel(value: number) {
+    if (value >= 1000000) {
+      return (Math.round(value / 100000)/ 10) + 'm';
+    }
+
+    return value;
+  }
+
 }
+

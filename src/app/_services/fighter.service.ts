@@ -11,4 +11,8 @@ export class FighterService {
     return this.http.post(`http://localhost:3030/fighter/submit`, record);
   }
 
+  edit(values, username) {
+    return this.http.post(`http://localhost:3030/fighter/edit/` + username, values);
+  }
+
 }
