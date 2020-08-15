@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LBCard} from "../_models/lbcard";
+import {LBCardService} from "../_services/lbcard.service";
+import {NotificationService} from "../_services/notification.service";
 
 @Component({
   selector: 'app-leaderboard',
@@ -8,24 +10,25 @@ import {LBCard} from "../_models/lbcard";
 })
 export class LeaderboardComponent implements OnInit {
 
-  LBCards: LBCard[] = [{username: 'jshin', rank: 1, first: 'justin',
-  last: 'shin', avggsp: 5000000, favorite: 'Mario', topgsp: 6000000, isElite: true},
-    {username: 'eshin', rank: 2, first: 'ellen',
-    last: 'shin', avggsp: 6000000, favorite: 'Marth', topgsp: 7000000, isElite: true},
-    {username: 'ashin', rank: 1, first: 'andy',
-      last: 'shin', avggsp: 7000000, favorite: 'Fox', topgsp: 7000000, isElite: false},
-    {username: 'alee', rank: 4, first: 'aaron',
-      last: 'lee', avggsp: 7000000, favorite: '', topgsp: 7000000, isElite: false}
-  ];
+  LBCards: LBCard[] = [];
 
-  constructor() { }
+  constructor(private lbcardService: LBCardService,
+              private notifService: NotificationService) { }
 
   ngOnInit() {
     this.loadAllCards();
   }
 
   private loadAllCards() {
-
+    this.lbcardService.getAll().subscribe(cards => {
+      this.LBCards = cards;
+      this.LBCards.forEach((card, index) => {
+        card.rank = index + 1;
+      });
+      this.LBCards.sort(this.compare);
+      console.log(this.LBCards);
+    },
+      error => {this.notifService.showNotif(error, 'error'); });
   }
 
   private compare(a, b) {
