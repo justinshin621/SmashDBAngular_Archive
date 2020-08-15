@@ -16,6 +16,7 @@ import { MyGSPComponent } from './my-gsp/my-gsp.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { EditComponent } from './edit/edit.component';
 import {IgxAvatarModule} from "igniteui-angular";
+import { LBCardComponent } from './lbcard/lbcard.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {IgxAvatarModule} from "igniteui-angular";
     MyGSPComponent,
     LeaderboardComponent,
     EditComponent,
+    LBCardComponent,
   ],
   imports: [
     BrowserModule,

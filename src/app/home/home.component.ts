@@ -1,10 +1,9 @@
-import {Component, OnDestroy, OnInit, Output} from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 
 import {UserService} from '../_services/user.service';
 import {NotificationService} from '../_services/notification.service';
 import {FighterService} from "../_services/fighter.service";
-import {Fighter} from "../_models/fighter";
-import {User} from "../_models/user";
+
 import {AuthService} from "../_services/auth.service";
 
 
@@ -39,8 +38,10 @@ import {AuthService} from "../_services/auth.service";
       isFavorite: false,
       isElite: false
     };
-    console.log(this.authService.currentUserValue._id);
-    this.fighterService.submit(record).subscribe(() => {
+    const userid = this.authService.currentUserValue._id;
+    console.log(record);
+    console.log(userid);
+    this.fighterService.submit({record, userid}).subscribe(() => {
       console.log('here');
       this.notifService.showNotif('Fighter GSP recorded!', 'confirmation');
     },

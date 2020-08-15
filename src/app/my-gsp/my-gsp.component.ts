@@ -16,7 +16,10 @@ export class MyGSPComponent implements OnInit {
     {name: 'Fox', gsp: 6000000, createdBy: this.authService.currentUserValue,
       createdDate: new Date(Date.now()), isFavorite: false, isElite: true},
     {name: 'Marth', gsp: 7000000, createdBy: this.authService.currentUserValue,
-      createdDate: new Date(Date.now()), isFavorite: true, isElite: true}];
+      createdDate: new Date(Date.now()), isFavorite: true, isElite: true},
+    {name: 'Falco', gsp: 8000000, createdBy: this.authService.currentUserValue,
+      createdDate: new Date(Date.now()), isFavorite: true, isElite: true}
+  ];
 
   constructor(private userService: UserService,
               private notifService: NotificationService,

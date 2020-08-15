@@ -50,6 +50,9 @@ export class FighterComponent implements OnInit {
     else if (this.fighter.name == 'Marth') {
       return FighterIcon.Marth
     }
+    else if (this.fighter.name == 'Falco') {
+      return FighterIcon.Falco
+    }
 
   }
 

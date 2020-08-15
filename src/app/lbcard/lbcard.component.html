@@ -1,0 +1,39 @@
+<mat-card class="rank-card">
+
+  <div>
+    <p class="ranking">{{LBCard.rank}}</p>
+  </div>
+
+  <div>
+    <div *ngIf="isUser(); else elseBlock">
+      <igx-avatar
+        [initials]="initials"
+        roundShape="true"
+        size="medium"
+        bgColor="grey"
+      >
+      </igx-avatar>
+    </div>
+
+    <ng-template #elseBlock>
+      <igx-avatar [initials]="initials"
+                  roundShape="true"
+                  size="medium"
+                  bgColor="{{color}}"
+      >
+      </igx-avatar>
+    </ng-template>
+  </div>
+
+  <section class="calories">
+
+  </section>
+
+  <section class="time">
+
+
+  </section>
+
+
+
+</mat-card>

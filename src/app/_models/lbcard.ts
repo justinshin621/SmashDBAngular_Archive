@@ -4,4 +4,5 @@ export class LBCard {
   last: string;
   avggsp: number;
   favorite: string;
+  rank: number
 }
