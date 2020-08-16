@@ -31,7 +31,7 @@
     <section>
       <div class="user-gsp">{{gsp | number}} GSP</div>
       <div class="date">{{date | date}}</div>
-      <div class="average-gsp">{{gsp | number}} AVG GSP</div>
+      <div class="average-gsp">{{avggsp | number}} AVG GSP</div>
     </section>
 
     <div class="menu">
@@ -39,8 +39,7 @@
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item [routerLink]="['/edit', this.fighter.createdDate ,this.fighter.name, this.fighter.gsp,
-        this.fighter.isFavorite]">
+        <button mat-menu-item (click)="edit()">
           <mat-icon>edit</mat-icon>
           <span>Edit</span>
         </button>
@@ -54,6 +53,9 @@
 
   </mat-card>
 </div>
+
+
+
 
 
 <ng-template #elseBlock2>
@@ -89,7 +91,7 @@
     <section>
       <div class="user-gsp">{{gsp | number}} GSP</div>
       <div class="date">{{date | date}}</div>
-      <div class="average-gsp">{{gsp | number}} AVG GSP</div>
+      <div class="average-gsp">{{avggsp | number}} AVG GSP</div>
     </section>
 
     <div class="menu">
@@ -97,12 +99,11 @@
         <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item [routerLink]="['/edit', this.fighter.createdDate,
-        this.fighter.name, this.fighter.gsp, this.fighter.isFavorite]">
+        <button mat-menu-item (click)="edit()">
           <mat-icon>edit</mat-icon>
           <span>Edit</span>
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item (click)="delete(fighter.createdDate)">
           <mat-icon>delete</mat-icon>
           <span>Delete</span>
         </button>

@@ -14,6 +14,8 @@ export class LBCardComponent implements OnInit {
 
   initials: string;
 
+  rank = 0;
+
   mode = 'determinate';
 
   avatar: FighterIcon
@@ -40,6 +42,7 @@ export class LBCardComponent implements OnInit {
     }
     this.avatar = this.getIcon();
     this.isElite = this.LBCard.isElite;
+    this.rank = this.LBCard.rank;
   }
 
   isUser() {

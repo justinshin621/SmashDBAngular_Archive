@@ -13,15 +13,7 @@ import {first} from "rxjs/operators";
 })
 export class MyGSPComponent implements OnInit {
 
-  fighters: Fighter[] = [{name: 'Kirby', gsp: 5000000, createdBy: this.authService.currentUserValue,
-    createdDate: new Date(Date.now()), isFavorite: true, isElite: false},
-    {name: 'Fox', gsp: 6000000, createdBy: this.authService.currentUserValue,
-      createdDate: new Date(Date.now()), isFavorite: false, isElite: true},
-    {name: 'Marth', gsp: 7000000, createdBy: this.authService.currentUserValue,
-      createdDate: new Date(Date.now()), isFavorite: true, isElite: true},
-    {name: 'Falco', gsp: 8000000, createdBy: this.authService.currentUserValue,
-      createdDate: new Date(Date.now()), isFavorite: true, isElite: true}
-  ];
+  fighters: Fighter[] = [];
 
   constructor(private userService: UserService,
               private notifService: NotificationService,
@@ -40,16 +32,15 @@ export class MyGSPComponent implements OnInit {
       error => this.notifService.showNotif(error.toString(), 'warning'));
   }
 
-  loadUserFighters() {
-
-  }
-
   deleteFighter(date) {
+    console.log('Getting through');
+    console.log(date);
+    console.log(this.authService.currentUserValue.username);
     this.fighterService.delete(date, this.authService.currentUserValue.username).pipe(first()).subscribe(() => {
       this.fighters = null;
       this.loadAllFighters();
-      this.notifService.showNotif('Delete Fighter!', 'response');
-    })
+      this.notifService.showNotif('Deleted Fighter!', 'response');
+    });
   }
 
 }

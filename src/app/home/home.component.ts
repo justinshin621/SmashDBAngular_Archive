@@ -45,7 +45,7 @@ import {AuthService} from "../_services/auth.service";
       this.notifService.showNotif('Fighter GSP recorded!', 'confirmation');
     },
       error => {
-        this.notifService.showNotif('problem submitting', 'error');
+        this.notifService.showNotif(error, 'error');
       });
 
   }

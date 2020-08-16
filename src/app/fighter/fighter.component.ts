@@ -4,6 +4,8 @@ import {Fighter} from "../_models/fighter";
 import {UserService} from "../_services/user.service";
 import {User} from "../_models/user";
 import {AuthService} from "../_services/auth.service";
+import {Router} from "@angular/router";
+import {NotificationService} from "../_services/notification.service";
 
 @Component({
   selector: 'app-fighter',
@@ -15,9 +17,13 @@ export class FighterComponent implements OnInit {
   @Input() fighter: Fighter;
   @Output() deleteEvent = new EventEmitter<Date>()
 
-  username = 'user';
+  username = '';
+
+  currentUser = '';
 
   gsp: number;
+
+  avggsp: number;
 
   avatar: FighterIcon;
 
@@ -29,22 +35,55 @@ export class FighterComponent implements OnInit {
 
   isElite: boolean
 
-  userHasMain: boolean;
+  users: User[] = [];
 
-  constructor() { }
+  constructor(private router: Router,
+              private auth: AuthService,
+              private notifService: NotificationService,
+              private userSerivce: UserService) { }
 
   delete(date) {
     console.log(date);
     this.deleteEvent.emit(date);
   }
 
+  edit() {
+
+    if (this.fighter.createdBy.toString() === this.auth.currentUserValue._id){
+      this.router.navigate(['/edit', this.fighter.createdDate ,this.fighter.name, this.fighter.gsp,
+        this.fighter.isFavorite]);
+    }
+    else {
+      this.notifService.showNotif('Operation Not Permitted For: ' + this.currentUser);
+    }
+
+  }
+
   ngOnInit() {
+
+    this.userSerivce.getAll().subscribe(users => {
+      this.users = users;
+      console.log(this.users);
+
+      for (let i = 0; i < this.users.length; i++) {
+        if (this.fighter.createdBy.toString() === this.users[i]._id) {
+          this.username = this.users[i].username;
+        }
+        if (this.auth.currentUserValue._id === this.users[i]._id){
+          this.currentUser = this.users[i].username;
+        }
+      }
+    });
+
     this.gsp = this.fighter.gsp
+    this.avggsp = this.fighter.avggsp;
     this.date = this.fighter.createdDate.toString()
     this.username = this.fighter.createdBy.username
     this.avatar = this.getIcon();
     this.isElite = this.fighter.isElite;
     this.isFavorite = this.fighter.isFavorite;
+
+    console.log(this.fighter.createdBy);
   }
 
   getIcon() {

@@ -4,6 +4,8 @@ import {NotificationService} from "../_services/notification.service";
 import {AuthService} from "../_services/auth.service";
 import {FighterIcon} from "../_models/fightericon";
 import {FighterService} from "../_services/fighter.service";
+import {Fighter} from "../_models/fighter";
+import {UserService} from "../_services/user.service";
 
 
 @Component({
@@ -21,14 +23,19 @@ export class EditComponent implements OnInit {
 
   favorite: boolean;
 
+  yesno: boolean;
+
   hasMain: boolean;
 
   date: Date
 
+  fighters: Fighter[] = [];
+
   constructor(private route: ActivatedRoute,
               private notifService: NotificationService,
               private auth: AuthService,
-              private fighterService: FighterService) { }
+              private fighterService: FighterService,
+              private userSerivce: UserService) { }
 
   ngOnInit() {
 
@@ -37,16 +44,18 @@ export class EditComponent implements OnInit {
       this.date = params['date'];
       this.gsp = params['gsp'];
       this.fighter = params['fighter']
-      this.avatar = this.getIcon();
-
-      console.log('Has Main is: ' + this.hasMain)
-      console.log('Favorite is: ' + this.favorite);
     });
+
+    this.hasMain = this.auth.currentUserValue.hasMain;
+    this.avatar = this.getIcon();
+    console.log(this.auth.currentUserValue.hasMain);
+    console.log('Has Main is: ' + this.hasMain)
+    console.log('Favorite is: ' + this.favorite);
   }
 
   editCard() {
     this.fighterService.edit({date: this.date,
-        gsp: this.gsp, fighter: this.fighter, favorite: this.favorite},
+        gsp: this.gsp, fighter: this.fighter, favorite: this.favorite, hasMain: this.hasMain},
       this.auth.currentUserValue.username)
       .subscribe(() => {
         console.log(this.auth.currentUserValue.username);
