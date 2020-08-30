@@ -1,5 +1,11 @@
 <mat-card class="card">
-  <h3>Submit</h3>
+  <h3 class="text">Submit Your GSP!</h3>
+  <img
+    class="icon"
+    [src]="avatar"
+    height="100px"
+    width="300px"
+  >
   <form class="form">
     <mat-form-field appearance="standard" class="width">
       <mat-label>Select character</mat-label>
@@ -15,6 +21,6 @@
 
 
   </form>
-  <button mat-flat-button color="accent" (click)="submit()">Submit</button>
+  <button mat-flat-button color="accent" class="button" (click)="submit()">Submit</button>
 </mat-card>
 

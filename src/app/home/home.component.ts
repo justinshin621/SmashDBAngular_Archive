@@ -5,6 +5,7 @@ import {NotificationService} from '../_services/notification.service';
 import {FighterService} from "../_services/fighter.service";
 
 import {AuthService} from "../_services/auth.service";
+import {FighterIcon} from "../_models/fightericon";
 
 
 @Component({ templateUrl: 'home.component.html' ,
@@ -13,10 +14,12 @@ import {AuthService} from "../_services/auth.service";
   )
 
   export class HomeComponent implements OnInit {
+
   characters: string[] = ['Fox', 'Cloud', 'Pikachu', 'Mario', 'Luigi', 'Marth', 'Roy', 'Falco', 'Meta Knight', 'Peach',
     'Pichu', 'Captain Falcon', 'Ganondorf', 'Yoshi', 'Kirby'];
   GSP: number;
   fighter = 'Fox';
+  avatar = FighterIcon.cfal;
 
 
 
