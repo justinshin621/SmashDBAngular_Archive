@@ -9,19 +9,19 @@ export class FighterService {
 
 
   submit(record, username) {
-    return this.http.post(`https://justinshin621.github.io/SmashDB/fighter/submit/` + username, record);
+    return this.http.post(`${config.apiUrl}/fighter/submit/` + username, record);
   }
 
   edit(values, username) {
-    return this.http.post(`http://localhost:80/fighter/edit/` + username, values);
+    return this.http.post(`${config.apiUrl}/fighter/edit/` + username, values);
   }
 
   delete(date, username) {
-    return this.http.delete(`http://localhost:80/fighter/${date}/${username}`);
+    return this.http.delete(`${config.apiUrl}/fighter/${date}/${username}`);
   }
 
   getAll() {
-    return this.http.get<Fighter[]>(`http://localhost:80/fighter/get`);
+    return this.http.get<Fighter[]>(`${config.apiUrl}/fighter/get`);
   }
 
 }
