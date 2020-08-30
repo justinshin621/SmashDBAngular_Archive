@@ -11,11 +11,11 @@ export class UserService {
 
 
   register(user: User) {
-    return this.http.post(`${config.apiUrl}/user/register`, user);
+    return this.http.post(`/api/user/register`, user);
   }
 
   getAll() {
-    return this.http.get<User[]>(`${config.apiUrl}/user/allusers`);
+    return this.http.get<User[]>(`/api/user/allusers`);
   }
 
 

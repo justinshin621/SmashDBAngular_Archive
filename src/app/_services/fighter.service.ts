@@ -9,19 +9,19 @@ export class FighterService {
 
 
   submit(record, username) {
-    return this.http.post(`${config.apiUrl}/fighter/submit/` + username, record);
+    return this.http.post(`/api/fighter/submit/` + username, record);
   }
 
   edit(values, username) {
-    return this.http.post(`${config.apiUrl}/fighter/edit/` + username, values);
+    return this.http.post(`/api/fighter/edit/` + username, values);
   }
 
   delete(date, username) {
-    return this.http.delete(`${config.apiUrl}/fighter/${date}/${username}`);
+    return this.http.delete(`/api/fighter/${date}/${username}`);
   }
 
   getAll() {
-    return this.http.get<Fighter[]>(`${config.apiUrl}/fighter/get`);
+    return this.http.get<Fighter[]>(`/api/fighter/get`);
   }
 
 }

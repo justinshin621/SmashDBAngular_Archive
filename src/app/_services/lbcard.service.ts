@@ -11,7 +11,7 @@ export class LBCardService {
 
 
   getAll() {
-    return this.http.get<LBCard[]>(`${config.apiUrl}/lbcard/getlbcards`);
+    return this.http.get<LBCard[]>(`/api/lbcard/getlbcards`);
   }
 
 
