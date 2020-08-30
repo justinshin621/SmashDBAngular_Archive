@@ -11,11 +11,11 @@ export class UserService {
 
 
   register(user: User) {
-    return this.http.post(`http://localhost:3030/user/register`, user);
+    return this.http.post(`http://localhost:80/user/register`, user);
   }
 
   getAll() {
-    return this.http.get<User[]>(`http://localhost:3030/user/allusers`);
+    return this.http.get<User[]>(`http://localhost:80/user/allusers`);
   }
 
 
